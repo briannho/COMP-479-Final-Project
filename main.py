@@ -19,7 +19,7 @@ data = data.drop(['STDs: Time since last diagnosis', 'STDs: Time since first dia
 data = data.dropna()
 
 #Splitting the Data
-#np.random.seed(479)
+np.random.seed(479)
 from sklearn.model_selection import train_test_split
 train, test = train_test_split(data, test_size = 0.25)
 
@@ -84,7 +84,7 @@ from sklearn.metrics import accuracy_score
 CV_acc = 0
 best_c = -1000
 C = [0.00001, 0.0001, 0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000, 100000]
-kfolds = StratifiedKFold(n_splits=10) #shuffle and randomstate??
+kfolds = StratifiedKFold(n_splits = 10, shuffle = True)
 
 #Testing Different Values for C
 for c in C:
